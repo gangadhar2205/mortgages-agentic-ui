@@ -1,26 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
 import { SignUp } from './authentication/SignUp';
-import { Layout } from './layout/Layout';
+import  Layout from './layout/Layout';
 import { Button, Typography, Stack } from '@mui/material';
+import  { Home } from './mortgages-processing/Home';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 
 
 function App() {
   return (
     <div className="App">
-       <Layout
-          header={<Typography variant="h4">Mortgage Agentic - Portal</Typography>}
+       {/* <Layout
+          header={<Header />}
           left={
-            <Stack spacing={2}>
-              <Typography variant="h6">Navigation</Typography>
-              <Button variant="contained">Home</Button>
-              <Button variant="outlined">Profile</Button>
-              <Button variant="outlined">Help</Button>
-            </Stack>
+            <LeftHome />
           }
-          right={<SignUp />}
+          right={<Home />}
           footer={<Typography>Copyright &copy; {new Date().getFullYear()} Mortgage Agentic</Typography>}
-        />
+        /> */}
+
+   <Router>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="signup" element={<SignUp />} />
+    </Route>
+    <Route path="*" element={<Navigate to="/" />} />
+  </Routes>
+</Router>
     </div>
   );
 }
