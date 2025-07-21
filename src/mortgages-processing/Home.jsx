@@ -29,9 +29,9 @@ export const Home = () => {
       }}
     >
       <TextField
-        placeholder="Type your message…"
+        placeholder="Start your enquiry…."
         fullWidth
-        size="small"
+        size="medium"
         variant="outlined"
         sx={{
           bgcolor: '#fff',
