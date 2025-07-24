@@ -7,6 +7,8 @@ export default function SignupSuccess() {
   const navigate = useNavigate();
   const data = location.state || {};
 
+  const status = data.status?.toLowerCase(); // Normalize for consistency
+
   return (
     <Box
       sx={{
@@ -30,10 +32,36 @@ export default function SignupSuccess() {
         <Typography variant="h4" fontWeight={700} color="#00844A" mb={2}>
           Signup Successful!
         </Typography>
-        <Typography mb={2}>Thank you for registering. Your application ID is:</Typography>
+
+        <Typography mb={2}>
+          Thank you for registering. Your application ID is:
+        </Typography>
         <Typography fontWeight={700} fontSize={22} color="#111" mb={3}>
           {data.userId || "N/A"}
         </Typography>
+
+        {data.status && (
+          <>
+            <Typography fontWeight={600} color="text.secondary" mb={1}>
+              Status: {data.status}
+            </Typography>
+
+            <Typography fontWeight={500} color="text.secondary" mb={1}>
+              Reason: {data.reason || "Not provided"}
+            </Typography>
+
+            {status === "accepted" ? (
+              <Typography fontWeight={500} color="text.secondary" mb={2}>
+                ROI: {data.roi || "Not available"}
+              </Typography>
+            ) : (
+              <Typography fontWeight={500} color="error.main" mb={2}>
+                You haven&apos;t met the eligibility criteria
+              </Typography>
+            )}
+          </>
+        )}
+
         <Button
           variant="contained"
           onClick={() => navigate("/login")}

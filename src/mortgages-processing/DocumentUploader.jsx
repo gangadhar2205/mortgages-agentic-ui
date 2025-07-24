@@ -91,11 +91,11 @@ const DocumentUploader = () => {
   };
 
   const handleSubmit = async () => {
-     const profileRes = await requests({
-                url: 'http://localhost:8081/api/v1/mortgage/submit',
-                method: 'get',
-                params: { userId },
-              });
+    //  const profileRes = await requests({
+    //             url: 'http://localhost:8081/api/v1/mortgage/submit',
+    //             method: 'get',
+    //             params: { userId },
+    //           });
   };
 
   return (

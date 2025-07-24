@@ -3,6 +3,7 @@ import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
 import { userProfileAtom } from '../stores/atom';
 import { TextField, Typography, Box, Grid } from '@mui/material';
+import { useToast } from "./ToastContext";
 
 const editableFields = [
   'email', 'title', 'firstName', 'lastName', 'mobile',
@@ -12,6 +13,8 @@ const editableFields = [
 ];
 
 const ProfilePage = () => {
+
+   const {showToast} = useToast();
 
   const navigate = useNavigate();
   const [profile] = useAtom(userProfileAtom);
@@ -31,6 +34,13 @@ const ProfilePage = () => {
       [field]: value
     }));
   };
+
+  const updateDocument = () => {
+    showToast("Details are updated succesfully", "Success")
+      setTimeout(() => {
+      navigate('/document-uploader'); // Replace with your actual path
+    }, 3000);
+  }
 
   if (!profile) {
     return <Typography>Loading profile...</Typography>;
@@ -105,7 +115,7 @@ const ProfilePage = () => {
 
 <Box sx={{ textAlign: 'left', ml: 10, mt: 4 }}>
   <button
-    onClick={() => navigate('/document-uploader')}
+    onClick={() => updateDocument}
     style={{
       padding: '12px 24px',
       backgroundColor: '#1976d2',
