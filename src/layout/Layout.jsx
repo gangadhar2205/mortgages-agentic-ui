@@ -112,11 +112,13 @@ const Layout = () => (
     {/* Main Content */}
     <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
       {/* Left Panel */}
-      <div style={{ width: 600, minWidth: 260, maxWidth: 420, overflow: 'hidden' }}>
+      {/* <div style={{ width: 600, minWidth: 260, maxWidth: 420, overflow: 'hidden' }}>
         <LeftHome />
-      </div>
-      {/* Right Panel */}
-      <div style={{
+      </div> */}
+      {/* Home Panel */}
+      <div 
+      id="main-content"
+      style={{
         flex: 1,
         overflow: 'auto',
         background: '#f9f9f9',

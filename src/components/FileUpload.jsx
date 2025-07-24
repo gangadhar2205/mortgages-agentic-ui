@@ -9,15 +9,17 @@ const FileUpload = ({
   accept,
   error,
   helperText,
+  onChange,
   ...rest
 }) => (
-  <div style={{ margin: '16px 0' }}>
+  <div style={{ margin: '8px 0' }}>
     <input
       type="file"
       id={id}
-      style={{ display: 'none' }}
+      name={name}
       accept={accept}
-      {...register(name)}
+      style={{ display: 'none' }}
+      onChange={onChange}
       {...rest}
     />
     <label htmlFor={id}>

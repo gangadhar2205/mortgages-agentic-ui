@@ -1,10 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import { SignUp } from './authentication/SignUp';
+import  Login  from './authentication/Login';
 import  Layout from './layout/Layout';
-import { Button, Typography, Stack } from '@mui/material';
-import  { Home } from './mortgages-processing/Home';
+import   MainHome from './mortgages-processing/MainHome';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AgreementInPrinciple from './mortgages-processing/AgreementInPrinciple';
+import MortgageIntroduction from './mortgages-processing/MortgageIntroduction';
+import ApiFinal from './mortgages-processing/AipFinal';
+import ScrollToTop from './utils/ScrollToTop';
+import { ToastProvider } from './mortgages-processing/ToastContext';
+import SignupSuccess from './mortgages-processing/SignupSuccess';
+import ProfilePage from './mortgages-processing/ProfilePage';
+import DocumentUploader from './mortgages-processing/DocumentUploader';
 
 
 
@@ -21,14 +27,28 @@ function App() {
         /> */}
 
    <Router>
-  <Routes>
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="signup" element={<SignUp />} />
-    </Route>
-    <Route path="*" element={<Navigate to="/" />} />
-  </Routes>
-</Router>
+    <ScrollToTop />
+    <ToastProvider>
+      <Routes>
+          <Route path="/" element={<Layout />}>
+          <Route index element={<MainHome />} />
+          <Route path="login" element={<Login />} />
+          <Route path="document-uploader" element={<DocumentUploader />} />
+          <Route path='userprofile' element={<ProfilePage />} />
+          <Route path="signup" element={<AgreementInPrinciple />} />
+          <Route path='agreementip' element={<AgreementInPrinciple />}/>
+          <Route path='mortgage-introduction' element={<MortgageIntroduction />}/>
+
+          <Route path='signup-success' element={<SignupSuccess/>}></Route>
+          
+          
+          <Route path='apifinal' element={<ApiFinal />}/>
+          
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+       </ToastProvider>
+    </Router>
     </div>
   );
 }
