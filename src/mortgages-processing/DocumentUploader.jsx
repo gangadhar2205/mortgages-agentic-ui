@@ -65,7 +65,7 @@ const DocumentUploader = () => {
 
     try {
       const res = await requests({
-        url: '/api/v1/user/upload',
+        url: 'http://34.39.122.251:8085/api/v1/user/upload',
         method: 'POST',
         data: formData,
       });
@@ -91,11 +91,11 @@ const DocumentUploader = () => {
   };
 
   const handleSubmit = async () => {
-    //  const profileRes = await requests({
-    //             url: '/api/v1/mortgage/submit',
-    //             method: 'get',
-    //             params: { userId },
-    //           });
+     const profileRes = await requests({
+                url: 'http://34.39.122.251:8085/api/v1/mortgage/submit',
+                method: 'get',
+                params: { userId },
+              });
   };
 
   return (

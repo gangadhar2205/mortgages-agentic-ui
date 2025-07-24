@@ -112,7 +112,7 @@ export default function ApiFinal({ prevData = {} }) {
     console.log(finalData)
     try {
       const response = await requests({
-        url: "/api/v1/user/register",     // Change to your API path
+        url: "http://34.39.122.251:8085/api/v1/user/register",     // Change to your API path
         method: "post",
         data: finalData,
         headers: { "Content-Type": "application/json" }, // Optionally add headers
