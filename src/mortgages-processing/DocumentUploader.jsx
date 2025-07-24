@@ -8,7 +8,6 @@ import { userStateAtom } from '../stores/atom';
 import { requests } from '../utils/requests';
 import { useNavigate } from 'react-router-dom';
 import { userProfileAtom } from '../stores/atom';
-import { useAtomValue } from 'jotai';
 
 const DOCUMENTS = [
   { key: 'passport', label: 'Passport' },
