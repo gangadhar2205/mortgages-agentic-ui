@@ -1,13 +1,14 @@
 import FileUpload from '../components/FileUpload'; 
 import React, { useState } from 'react';
 import { Box, Typography, Button, IconButton } from '@mui/material';
-import { CheckCircle, Delete, UploadFile, ArrowBack, ArrowForward } from '@mui/icons-material';
+import { CheckCircle, Delete, UploadFile, ArrowBack, ArrowForward, InputOutlined } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
-import { getDefaultStore } from 'jotai';
+import { getDefaultStore, useAtomValue } from 'jotai';
 import { userStateAtom } from '../stores/atom'; 
 import { requests } from '../utils/requests';
 import { useNavigate } from 'react-router-dom';
 import { userProfileAtom } from '../stores/atom';
+import { useAtomValue } from 'jotai';
 
 const DOCUMENTS = [
   { key: 'passport', label: 'Passport' },
