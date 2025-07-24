@@ -7,6 +7,8 @@ export default function SignupSuccess() {
   const navigate = useNavigate();
   const data = location.state || {};
 
+  console.log("Data is "+data)
+
   const status = data.status?.toLowerCase(); // Normalize for consistency
 
   return (
@@ -46,13 +48,16 @@ export default function SignupSuccess() {
               Status: {data.status}
             </Typography>
 
-            <Typography fontWeight={500} color="text.secondary" mb={1}>
-              Reason: {data.reason || "Not provided"}
-            </Typography>
+            
 
             {status === "accepted" ? (
-              <Typography fontWeight={500} color="text.secondary" mb={2}>
+              <Typography>
+                <Typography fontWeight={500} color="text.secondary" mb={2}>
                 ROI: {data.roi || "Not available"}
+                </Typography>
+                <Typography fontWeight={500} color="text.secondary" mb={1}>
+                Reason: {data.reason || "Not provided"}
+              </Typography>
               </Typography>
             ) : (
               <Typography fontWeight={500} color="error.main" mb={2}>

@@ -65,7 +65,7 @@ const DocumentUploader = () => {
 
     try {
       const res = await requests({
-        url: 'http://localhost:8081/api/v1/user/upload',
+        url: 'http://backend-service:8085/api/v1/user/upload',
         method: 'POST',
         data: formData,
       });
@@ -92,7 +92,7 @@ const DocumentUploader = () => {
 
   const handleSubmit = async () => {
     //  const profileRes = await requests({
-    //             url: 'http://localhost:8081/api/v1/mortgage/submit',
+    //             url: 'http://backend-service:8085/api/v1/mortgage/submit',
     //             method: 'get',
     //             params: { userId },
     //           });
