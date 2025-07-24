@@ -7,6 +7,7 @@ import { getDefaultStore } from 'jotai';
 import { userStateAtom } from '../stores/atom'; 
 import { requests } from '../utils/requests';
 import { useNavigate } from 'react-router-dom';
+import { userProfileAtom } from '../stores/atom';
 
 const DOCUMENTS = [
   { key: 'passport', label: 'Passport' },
@@ -14,7 +15,9 @@ const DOCUMENTS = [
   { key: 'utility', label: 'Utility Bill' },
   { key: 'p60', label: 'P60 TaxForm' },
   { key: 'salary', label: 'Salary' },
+  {key: 'bank', label: 'Bank Statement'},
   { key: 'property', label: 'Property Data' },
+
 ];
 
 const DocumentUploader = () => {
@@ -23,6 +26,8 @@ const DocumentUploader = () => {
   const [progress, setProgress] = useState(0);
   const store = getDefaultStore();
   const user = store.get(userStateAtom);
+  const userState = useAtomValue(userProfileAtom); // Get full user object
+
   const userId = user?.acountId ?? localStorage.getItem("acountId");
   const navigate = useNavigate();
 
@@ -54,6 +59,7 @@ const DocumentUploader = () => {
     const requestObject = {
       documentName: fileData.name,
       applicationId: userId,
+      userName: userState.userName,
       documentType: key,
       fileType: fileData.type
     };
