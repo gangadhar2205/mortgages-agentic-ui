@@ -61,7 +61,7 @@ export const Home = () => {
 
     try {
       const response = await requests({
-        url: 'http://backend-service:8085/api/v1/mortgage/enquiry',
+        url: '/api/v1/mortgage/enquiry',
         method: 'post',
         data: { user_input: trimmed },
       });

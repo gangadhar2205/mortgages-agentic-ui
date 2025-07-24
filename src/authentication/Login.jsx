@@ -48,7 +48,7 @@ export default function Login({ onLogin, onSSO }) {
        
         console.log("Logging in....");
         const response = await requests({
-          url: "http://backend-service:8085/api/v1/user/login",
+          url: "/api/v1/user/login",
           method: "post",
           data: form,
         });
@@ -71,7 +71,7 @@ export default function Login({ onLogin, onSSO }) {
           console.log("calling profile api....");
           console.log(userId)
           const profileRes = await requests({
-            url: 'http://backend-service:8085/api/v1/user/profile',
+            url: '/api/v1/user/profile',
             method: 'get',
             params: { userId },
           });
