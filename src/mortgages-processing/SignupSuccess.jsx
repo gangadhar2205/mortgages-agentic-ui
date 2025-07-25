@@ -50,7 +50,7 @@ export default function SignupSuccess() {
 
             
 
-            {status === "accepted" ? (
+            {data.status === "Approved" ? (
               <Typography>
                 <Typography fontWeight={500} color="text.secondary" mb={2}>
                 ROI: {data.roi || "Not available"}

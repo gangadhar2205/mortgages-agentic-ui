@@ -37,7 +37,7 @@ const ProfilePage = () => {
 
   const updateDocument = () => {
     showToast("Details are updated succesfully", "Success")
-      setTimeout(() => {
+    setTimeout(() => {
       navigate('/document-uploader'); // Replace with your actual path
     }, 3000);
   }
@@ -115,7 +115,7 @@ const ProfilePage = () => {
 
 <Box sx={{ textAlign: 'left', ml: 10, mt: 4 }}>
   <button
-    onClick={() => updateDocument}
+    onClick={() => updateDocument()}
     style={{
       padding: '12px 24px',
       backgroundColor: '#1976d2',

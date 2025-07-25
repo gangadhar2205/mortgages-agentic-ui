@@ -8,6 +8,7 @@ import { userStateAtom } from '../stores/atom';
 import { requests } from '../utils/requests';
 import { useNavigate } from 'react-router-dom';
 import { userProfileAtom } from '../stores/atom';
+import { useToast } from "./ToastContext";
 
 const DOCUMENTS = [
   { key: 'passport', label: 'Passport' },
@@ -21,6 +22,7 @@ const DOCUMENTS = [
 ];
 
 const DocumentUploader = () => {
+    const {showToast} = useToast();
   const { register } = useForm();
   const [uploads, setUploads] = useState({});
   const [progress, setProgress] = useState(0);
@@ -71,10 +73,13 @@ const DocumentUploader = () => {
 
     try {
       const res = await requests({
-        url: 'http://34.39.122.251:8085/api/v1/user/upload',
+        url: 'http://localhost:8081/api/v1/user/upload',
         method: 'POST',
         data: formData,
       });
+
+       showToast(res.data.documentType + " "+res.data.status, "Success")
+
 
       if (true) {
         setUploads((prev) => ({
@@ -97,11 +102,19 @@ const DocumentUploader = () => {
   };
 
   const handleSubmit = async () => {
+
+    console.log( userState?.userId)
+    const userId = userState?.userId;
+    
      const profileRes = await requests({
-                url: 'http://34.39.122.251:8085/api/v1/mortgage/submit',
+                url: 'http://localhost:8081/api/v1/mortgage/submit',
                 method: 'get',
                 params: { userId },
               });
+
+              
+  // Navigate to result page, pass result via state
+      navigate('/result', { state: profileRes.data });
   };
 
   return (

@@ -112,7 +112,7 @@ export default function ApiFinal({ prevData = {} }) {
     console.log(finalData)
     try {
       const response = await requests({
-        url: "http://34.39.122.251:8085/api/v1/user/register",     // Change to your API path
+        url: "http://localhost:8081/api/v1/user/register",     // Change to your API path
         method: "post",
         data: finalData,
         headers: { "Content-Type": "application/json" }, // Optionally add headers
@@ -319,13 +319,6 @@ export default function ApiFinal({ prevData = {} }) {
           </Box>
           {/* Nationality */}
           <Typography fontWeight={700} sx={{ mt: 2 }}>Nationality</Typography>
-          <Typography
-            component="a"
-            sx={{ textDecoration: "underline", fontWeight: 500, mb: 1, color: "#111", cursor: "pointer", fontSize: 17 }}
-            tabIndex={0}
-          >
-            Why do we need this?
-          </Typography>
           <TextField
             select
             value={form.nationality}

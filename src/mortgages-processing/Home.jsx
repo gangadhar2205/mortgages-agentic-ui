@@ -61,7 +61,7 @@ export const Home = () => {
 
     try {
       const response = await requests({
-        url: 'http://34.39.122.251:8085/api/v1/mortgage/enquiry',
+        url: 'http://localhost:8081/api/v1/mortgage/enquiry',
         method: 'post',
         data: { user_input: trimmed },
       });

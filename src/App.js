@@ -11,6 +11,7 @@ import { ToastProvider } from './mortgages-processing/ToastContext';
 import SignupSuccess from './mortgages-processing/SignupSuccess';
 import ProfilePage from './mortgages-processing/ProfilePage';
 import DocumentUploader from './mortgages-processing/DocumentUploader';
+import Result from './mortgages-processing/Result';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="document-uploader" element={<DocumentUploader />} />
           <Route path='userprofile' element={<ProfilePage />} />
+          <Route path='result' element={<Result />} />
           <Route path="signup" element={<AgreementInPrinciple />} />
           <Route path='agreementip' element={<AgreementInPrinciple />}/>
           <Route path='mortgage-introduction' element={<MortgageIntroduction />}/>
